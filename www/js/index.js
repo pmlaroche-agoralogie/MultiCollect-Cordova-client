@@ -41,11 +41,11 @@ var app = {
 
         db.transaction(function(tx) {
             // If table exist that 
-            tx.executeSql('CREATE TABLE IF NOT EXISTS table (id integer primary key, name text)');
-            tx.executeSql("INSERT INTO table (id, name) VALUES (?,?)", [0, "hello"], function(tx, res) {
+            tx.executeSql('CREATE TABLE IF NOT EXISTS table_test (id integer, name text)');
+            tx.executeSql('INSERT INTO table_test (id, name) VALUES (?,?)', [0, 'hello'], function(tx, res) {
 
                 db.transaction(function(tx) {
-                 tx.executeSql("SELECT * from table;", [], function(tx, res) {
+                 tx.executeSql('SELECT * from table_test;', [], function(tx, res) {
                     alert("You run app : " + res.rows.length + " times");
                   });
                 });
