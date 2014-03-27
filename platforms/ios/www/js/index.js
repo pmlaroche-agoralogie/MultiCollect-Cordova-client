@@ -37,7 +37,7 @@ var app = {
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
-        var db = window.sqlitePlugin.openDatabase("database", "1.0", "test", -1);
+        var db = window.sqlitePlugin.openDatabase({name: "DB", key: "secret1"});
 
         db.transaction(function(tx) {
             // If table exist that 
